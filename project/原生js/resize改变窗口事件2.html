@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>client可视化封装函数</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+Resize();
+window.onresize=Resize;
+
+
+
+function Resize(){
+	var clientwidth=client().width;
+    alert(clientwidth);
+	if(clientwidth>960){document.body.style.backgroundColor="red";}
+	else if(clientwidth>460){document.body.style.backgroundColor="bule";}
+	else{document.body.style.backgroundColor="yellow";}
+}
+function client(){
+     	if(window.innerWidth!=null){
+     		return{width:window.innerWidth,height:window.innerHeight}
+     	}
+     	else if(document.compatMode=="CSS1Compat"){
+     		return{width:document.documentElement.clientWidth,height:document.documentElement.clientHeight}
+     	}
+     	else{return{width:document.body.clientWidth,height:document.body.clientHeight}}
+     }//client函数封装
+</script>
+</body>
+</html>
